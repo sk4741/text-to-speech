@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEXT TO SPEECH || BY KISHOR</title>
+    <style>
+      #box {
+        border: 2px solid red;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        width: 300px;
+        height: 300px;
+        color: aliceblue;
+        text-align: center;
+
+      }
+    </style>
+  </head>
+  <body style="background-color: black;">
+    <div id="box">
+      <h1>Text to speech</h1>
+      <label for="message">ENTER YOUR TEXT HERE TO LISTEN :</label>
+      <textarea id="message" rows="4" cols="35"></textarea>
+      <button onclick="play()">PLAY</button>
+    </div>
+    <script>
+      const speech = new SpeechSynthesisUtterance();
+      function play() {
+        const message = document.getElementById("message").value;
+        speech.lang = "en";
+        speech.text = message;
+        window.speechSynthesis.speak(speech);
+      }
+    </script>
+  </body>
+</html>
